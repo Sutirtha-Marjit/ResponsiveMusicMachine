@@ -31,9 +31,6 @@ gulp.task('htmlbuild',function(){
 });
 
 
-gulp.task('default', function() {
-    gulp.run(['jsoperations','htmlbuild','cssbuild']);
-    
-});
+gulp.task('default', ['jsoperations','htmlbuild','cssbuild']);
 
 console.log('Gulp actions are initiated');

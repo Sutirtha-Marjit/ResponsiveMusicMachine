@@ -1,8 +1,9 @@
 @fullWidth:100%;
 @darkRidColor:#000;
 @lightRidColor:#fff;
-@commonBackground:#fafafa;
+@commonBackground:#dddddd;
 @bigRidHeight:230px;
+@bigRidWidth:60px;
 
 .commonBoxModel(){
     -webkit-box-sizing: border-box;
@@ -11,6 +12,25 @@
     padding:0;
     margin:0;
 }
+
+.ridBoxShadow(@horizontal,@vertical,@blur,@spread,@opacity){
+	
+	-webkit-box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+	-moz-box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+	box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+
+}
+
+
+.gradient(@startColor,@startPercentage,@endColor,@endPercentage,@defaultColor){
+
+background: @defaultColor;
+background: -moz-linear-gradient(top,  @startColor @startPercentage, @endColor @endPercentage); 
+background: -webkit-linear-gradient(top,  @startColor @startPercentage, @endColor @endPercentage); 
+background: linear-gradient(to bottom,  @startColor @startPercentage, @endColor @endPercentage);
+
+}
+
 
 .ridBorder(@color,@radius){
 -moz-border-radius:0px 0px @radius @radius;
@@ -28,23 +48,39 @@ border:1px solid @color;
     .rid{
     cursor:pointer;
     }
+	
+	.ridTopStrip{
+	  height:15px;
+	  width:@fullWidth;
+	  position:absolute;
+	  top:0px;
+	  left:0px;
+	  .gradient(#87391f,15%,#752201,100%,#87391f);
+	  .ridBoxShadow(0px,5px,5px,5px,0.18);
+	
+	}
     
     .ridW{
-      width:@fullWidth; 
+      width:@fullWidth;
+      position:relative;	  
       
       .bigRidW{
        width:@fullWidth; 
        height:@bigRidHeight+20;
        background:@commonBackground;
        width:@fullWidth; 
-            .rid{
-             width:40px;
-             height:@bigRidHeight;
-             background:@lightRidColor;
-             float:left;
-             margin-right:1px;
-             .ridBorder(#CACACA,8px);
+            .rid{             
+             float:left;             
             }
+			
+			.bigRid{
+				width:@bigRidWidth;
+				height:@bigRidHeight;
+				background:@lightRidColor;
+				margin-right:1px;
+				.ridBorder(#CACACA,8px);
+				.ridBoxShadow(0px,2px,3px,1px,0.10);
+			}
       }  
     } 
 
