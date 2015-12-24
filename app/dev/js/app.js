@@ -25,8 +25,18 @@
 var rid = new Rid({
     wrapperObject:document.getElementById('machineWrapper'),
     name:"testRid",
-    src:"audio/Sleep Away.mp3",
+    src:"audio/1A.mp3",
     rid:document.getElementById("rid")    
 });
 
+<<<<<<< HEAD
 */
+=======
+
+var rid2 = new Rid({
+    wrapperObject:document.getElementById('machineWrapper'),
+    name:"testRid2",
+    src:"audio/2F.mp3",
+    rid:document.getElementById("rid2")    
+});
+>>>>>>> 2b07e254eb528506f600a6858b16943774582e5b
