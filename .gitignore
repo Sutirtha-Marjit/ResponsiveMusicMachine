@@ -1,0 +1,3 @@
+/app/dev/audio/*.*
+/app/prod/
+/app/node_modules/

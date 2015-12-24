@@ -1,0 +1,51 @@
+@fullWidth:100%;
+@darkRidColor:#000;
+@lightRidColor:#fff;
+@commonBackground:#fafafa;
+@bigRidHeight:230px;
+
+.commonBoxModel(){
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+.ridBorder(@color,@radius){
+-moz-border-radius:0px 0px @radius @radius;
+-webkit-border-radius:0px 0px @radius @radius;
+border-radius:0px 0px @radius @radius;
+border:1px solid @color;
+}
+
+.machineMainWrapper{
+    .commonBoxModel;
+    *{
+     .commonBoxModel;
+    }
+    
+    .rid{
+    cursor:pointer;
+    }
+    
+    .ridW{
+      width:@fullWidth; 
+      
+      .bigRidW{
+       width:@fullWidth; 
+       height:@bigRidHeight+20;
+       background:@commonBackground;
+       width:@fullWidth; 
+            .rid{
+             width:40px;
+             height:@bigRidHeight;
+             background:@lightRidColor;
+             float:left;
+             margin-right:1px;
+             .ridBorder(#CACACA,8px);
+            }
+      }  
+    } 
+
+}
