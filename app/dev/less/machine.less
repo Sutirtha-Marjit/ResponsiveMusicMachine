@@ -1,9 +1,17 @@
 @fullWidth:100%;
 @darkRidColor:#000;
 @lightRidColor:#fff;
+@bigRidBorderWidth:1px;
 @commonBackground:#dddddd;
-@bigRidHeight:230px;
-@bigRidWidth:60px;
+@bigRidBorderRadius:8px;
+@bigRidHeight:330px;
+@bigRidWidth:65px;
+@defaultTotalRidNumer:23;
+@bigToShortCoeff:0.65;
+
+@shortRidWidth:floor(@bigRidWidth*@bigToShortCoeff);
+@shortRidHeight:@bigRidHeight*@bigToShortCoeff;
+@defaultLeftValForShortRid:@bigRidWidth - ceil(@shortRidWidth/2);
 
 .commonBoxModel(){
     -webkit-box-sizing: border-box;
@@ -55,19 +63,48 @@ border:1px solid @color;
 	  position:absolute;
 	  top:0px;
 	  left:0px;
-	  .gradient(#87391f,15%,#752201,100%,#87391f);
+	  .gradient(#777,15%,#555,100%,#777);
 	  .ridBoxShadow(0px,5px,5px,5px,0.18);
 	
 	}
+	
+	.consolePack{
+	position:relative;
+	.gradient(@commonBackground,25%,#ffffff,100%,@commonBackground);
+	width:@fullWidth;
+	height:@bigRidHeight+20;
+	overflow:hidden;
+	}
+	
     
     .ridW{
-      width:@fullWidth;
-      position:relative;	  
+      width:(@defaultTotalRidNumer*@bigRidWidth)+(@bigRidBorderWidth*@defaultTotalRidNumer);
+      position:relative;
+      margin:0 auto;	  
       
+	  .shortRidW{
+		 width:@fullWidth;
+		.shortRid{
+				width:@shortRidWidth;
+				height:@shortRidHeight;
+				.gradient(#000,25%,#222,100%,#000);
+				position:absolute;
+				top:0;
+				cursor:pointer;
+				left:@defaultLeftValForShortRid;
+				.ridBorder(#000000,@bigRidBorderRadius);
+				.ridBoxShadow(0px,2px,3px,1px,0.70);
+			}
+			
+			.shortRid:hover{
+				.gradient(#000,25%,#111,100%,#111);
+				.ridBoxShadow(0px,1px,1px,1px,0.80);
+			}	  
+	  
+	  }
+	  
       .bigRidW{
-       width:@fullWidth; 
-       height:@bigRidHeight+20;
-       background:@commonBackground;
+       height:@bigRidHeight+20;       
        width:@fullWidth; 
             .rid{             
              float:left;             
@@ -78,9 +115,25 @@ border:1px solid @color;
 				height:@bigRidHeight;
 				background:@lightRidColor;
 				margin-right:1px;
-				.ridBorder(#CACACA,8px);
+				.ridBorder(#CACACA,@bigRidBorderRadius);
 				.ridBoxShadow(0px,2px,3px,1px,0.10);
 			}
+			.bigRid:hover{
+				.ridBoxShadow(0px,2px,2px,1px,0.45);
+			}
+			
+			
+			
+			.pressedRid{
+			    .gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
+			.pressedRid:hover{
+			    .gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
       }  
     } 
 
