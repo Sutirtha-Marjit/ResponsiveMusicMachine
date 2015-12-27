@@ -10,7 +10,7 @@ function Rid(ridConfigObject) {
 		audioEl.appendChild(sourceElement);
 		audioEl.id = instance.config.name;
 		audioEl.className = "hiddenAudioObj";
-		instance.config.wrapperObject.appendChild(audioEl);
+		instance.config.soundWrapperObject.appendChild(audioEl);
 		sourceElement.setAttribute("src", instance.config.src);
 		instance.audioEl = audioEl;
 
@@ -20,6 +20,22 @@ function Rid(ridConfigObject) {
 		instance.rid = instance.config.rid;
 		instance.rid.addEventListener('click', function () {
 			instance.play();
+		});
+		
+		instance.rid.addEventListener('mousedown', function () {
+			instance.rid.className = instance.rid.className+" pressedRid";
+		});
+		
+		instance.rid.addEventListener('mouseup', function () {
+			var tempstr = instance.rid.className;
+			tempstr = tempstr.split(' pressedRid').join(' ')
+			instance.rid.className = tempstr;
+		});
+		
+		instance.rid.addEventListener('mouseleave', function () {
+			var tempstr = instance.rid.className;
+			tempstr = tempstr.split(' pressedRid').join(' ')
+			instance.rid.className = tempstr;
 		});
 
 	};
@@ -48,7 +64,6 @@ function Rid(ridConfigObject) {
 	};
 
 	var init = function () {
-		console.log("Rid initiated");
 		generateAudioElement();
 		setRidGraphics();
 	};
