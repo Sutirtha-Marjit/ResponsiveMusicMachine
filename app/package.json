@@ -15,7 +15,10 @@
     "gulp-concat": "*",
     "gulp-uglify": "*",
     "gulp-htmlmin":"*",
-    "gulp-jshint":"*"
+    "gulp-jshint":"*",
+    "gulp-cssnano":"*",
+    "gulp-prettify":"*"
+    
   },
   "author": "Sutirtha",
   "license": "ISC",

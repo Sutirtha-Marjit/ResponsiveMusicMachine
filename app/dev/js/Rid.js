@@ -28,13 +28,13 @@ function Rid(ridConfigObject) {
 		
 		instance.rid.addEventListener('mouseup', function () {
 			var tempstr = instance.rid.className;
-			tempstr = tempstr.split(' pressedRid').join(' ')
+			tempstr = tempstr.split(' pressedRid').join(' ');
 			instance.rid.className = tempstr;
 		});
 		
 		instance.rid.addEventListener('mouseleave', function () {
 			var tempstr = instance.rid.className;
-			tempstr = tempstr.split(' pressedRid').join(' ')
+			tempstr = tempstr.split(' pressedRid').join(' ');
 			instance.rid.className = tempstr;
 		});
 
