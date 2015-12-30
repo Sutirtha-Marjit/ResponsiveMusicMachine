@@ -1,0 +1,15 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "This is for website/webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sutirtha",
+  "license": "ISC",
+  "dependencies":{
+    "jade":"*",
+    "express":"*"
+  }
+}
