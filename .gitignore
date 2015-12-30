@@ -1,3 +1,6 @@
 /app/dev/audio/*.*
 /app/prod/
 /app/node_modules/
+/Application/dev/musicmachine/dev/audio/*.*
+/Application/dev/musicmachine/node_modules/
+/Application/dev/musicmachine/prod/
