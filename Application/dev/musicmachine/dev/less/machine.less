@@ -1,0 +1,182 @@
+@fullWidth:100%;
+@darkRidColor:#000;
+@lightRidColor:#fff;
+@bigRidBorderWidth:1px;
+@commonBackground:#dddddd;
+@bigRidBorderRadius:8px;
+@bigRidHeight:330px;
+@bigRidWidth:50px;
+@defaultTotalRidNumer:23;
+@bigToShortCoeff:0.75;
+
+@shortRidWidth:ceil(@bigRidWidth*@bigToShortCoeff);
+@shortRidHeight:@bigRidHeight*@bigToShortCoeff;
+@defaultLeftValForShortRid:@bigRidWidth - ceil(@shortRidWidth/2);
+
+.commonBoxModel(){
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+.ridBoxShadow(@horizontal,@vertical,@blur,@spread,@opacity){
+	
+	-webkit-box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+	-moz-box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+	box-shadow: @horizontal @vertical @blur @spread rgba(0,0,0,@opacity);
+
+}
+
+
+.gradient(@startColor,@startPercentage,@endColor,@endPercentage,@defaultColor){
+
+background: @defaultColor;
+background: -moz-linear-gradient(top,  @startColor @startPercentage, @endColor @endPercentage); 
+background: -webkit-linear-gradient(top,  @startColor @startPercentage, @endColor @endPercentage); 
+background: linear-gradient(to bottom,  @startColor @startPercentage, @endColor @endPercentage);
+
+}
+
+
+.ridBorder(@color,@radius){
+-moz-border-radius:0px 0px @radius @radius;
+-webkit-border-radius:0px 0px @radius @radius;
+border-radius:0px 0px @radius @radius;
+border:1px solid @color;
+}
+
+.machineMainWrapper{
+    .commonBoxModel;
+    *{
+     .commonBoxModel;
+    }
+	
+	.firstContainer{
+		width:@fullWidth;
+		perspective: 800px;
+	}
+    
+    .rid{
+    cursor:pointer;
+    }
+	
+	.ridTopStrip{
+	  height:15px;
+	  width:@fullWidth;
+	  position:absolute;
+	  top:0px;
+	  left:0px;
+	  .gradient(#777,15%,#555,100%,#777);
+	  .ridBoxShadow(0px,5px,5px,5px,0.18);
+	
+	}
+	
+	.consolePack{
+	perspective: 800px;
+	position:relative;
+	.gradient(@commonBackground,25%,#ffffff,100%,@commonBackground);
+	width:@fullWidth;
+	height:@bigRidHeight+20;
+	overflow:hidden;
+	}
+	
+	@keyframes ridplateAnimation{
+		from{	 
+			transform: rotateX(20deg) rotateY(0deg ) rotateZ( 0deg ) translateY(-250px);
+			opacity:0;		}
+		to{
+			transform: rotateX(0deg) rotateY(0deg ) rotateZ(0deg ) translateY(0px);
+			opacity:1;
+		}
+	}
+	
+    
+    .ridW{
+      width:(@defaultTotalRidNumer*@bigRidWidth)+(@bigRidBorderWidth*@defaultTotalRidNumer);
+      position:relative;
+      margin:0 auto;
+	  animation-name: ridplateAnimation;
+      animation-duration: 2s;	
+      
+	  .shortRidW{
+		 width:@fullWidth;
+		.shortRid{
+				width:@shortRidWidth;
+				height:@shortRidHeight;
+				.gradient(#000,25%,#222,100%,#000);
+				position:absolute;
+				top:0;
+				cursor:pointer;
+				left:@defaultLeftValForShortRid;
+				.ridBorder(#000000,@bigRidBorderRadius);
+				.ridBoxShadow(0px,2px,3px,1px,0.70);
+			}
+			
+			.selected{
+				.gradient(#729a3e,25%,#537724,100%,#729a3e);
+				.ridBorder(#537724,@bigRidBorderRadius);
+			}
+			
+			div.pressedRid{
+				.gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
+			div.pressedRid:hover{
+				.gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
+			.shortRid:hover{
+				.gradient(#000,25%,#111,100%,#111);
+				.ridBoxShadow(0px,1px,1px,1px,0.80);
+			}		
+	  
+	  }
+	  
+      .bigRidW{
+       height:@bigRidHeight+20;       
+       width:@fullWidth; 
+            .rid{             
+             float:left;             
+            }
+			
+			.bigRid{
+				width:@bigRidWidth;
+				height:@bigRidHeight;
+				background:@lightRidColor;
+				margin-right:1px;
+				.ridBorder(#CACACA,@bigRidBorderRadius);
+				.ridBoxShadow(0px,2px,3px,1px,0.10);
+			}
+			
+			.selected{
+				.gradient(#e7ffc9,25%,#f1fce3,100%,#e7ffc9);
+				.ridBorder(#f1fce3,@bigRidBorderRadius);
+			}
+			
+			div.pressedRid{
+				.gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
+			div.pressedRid:hover{
+				.gradient(#2194b5,25%,#0480a4,100%,#2194b5);
+				border:none;
+			}
+			
+			.bigRid:hover{
+				.ridBoxShadow(0px,2px,2px,1px,0.45);
+			}
+
+				
+			
+      }
+
+	     	
+	  
+    } 
+
+}
