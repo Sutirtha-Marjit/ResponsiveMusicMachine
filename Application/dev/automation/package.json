@@ -1,5 +1,5 @@
 {
-  "name": "gulpactions",
+  "name": "AutomationEngine",
   "version": "1.0.0",
   "description": "GulpActions",
   "main": "index.js",
@@ -17,8 +17,7 @@
     "gulp-htmlmin":"*",
     "gulp-jshint":"*",
     "gulp-cssnano":"*",
-    "gulp-prettify":"*"
-    
+    "gulp-prettify":"*"    
   },
   "author": "Sutirtha",
   "license": "ISC",
