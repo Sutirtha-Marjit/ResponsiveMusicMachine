@@ -32,8 +32,9 @@ var JOB = {
 
 };
 
-/*Task definitions:Started.............................................*/
+/* Task definitions:Started.............................................*/
 
+/* Musicmachine automated jobs:Started ...*/
 gulp.task(JOB.musicmachine.cssbuild, function () {
 	commonSeparator();
 	console.log('Musicmachine CSS building started...');
@@ -65,6 +66,21 @@ gulp.task(JOB.musicmachine.htmlbuild, function () {
 
 });
 
-gulp.task('default', [JOB.musicmachine.cssbuild,JOB.musicmachine.jsoperations,JOB.musicmachine.htmlbuild]);
+
+/* Webapp automated jobs:Started ...*/
+gulp.task(JOB.webapp.cssbuild,function(){
+	commonSeparator();
+	console.log('Webapp CSS building started...');	
+	gulp.src(['../webapp/ui/less/*.less'])
+	.pipe(less({}))
+	.pipe(nano())
+	.pipe(gulp.dest('../webapp/ui/css/'));
+});
+
+
+
+
+gulp.task('musicmachine', [JOB.musicmachine.cssbuild,JOB.musicmachine.jsoperations,JOB.musicmachine.htmlbuild]);
+gulp.task('webapp', [JOB.webapp.cssbuild]);
 
 console.log(initMessage);
