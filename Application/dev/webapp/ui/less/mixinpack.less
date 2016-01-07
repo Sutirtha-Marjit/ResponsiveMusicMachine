@@ -1,0 +1,10 @@
+.fontfaceCreatorMixin(@commonFntName,@fntStyle,@fntWeight,@src1,@src2,@src3){
+   
+   @font-face {
+    font-family: @commonFntName;
+	font-style: @fntStyle;
+	font-weight: @fntWeight;
+	src: local(@src1), local(@src2), url(@src3) format('truetype');   
+   }
+
+}

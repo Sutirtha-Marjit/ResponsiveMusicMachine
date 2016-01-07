@@ -73,7 +73,7 @@ gulp.task(JOB.webapp.cssbuild,function(){
 	console.log('Webapp CSS building started...');	
 	gulp.src(['../webapp/ui/less/*.less'])
 	.pipe(less({}))
-	.pipe(nano())
+	//.pipe(nano())
 	.pipe(gulp.dest('../webapp/ui/css/'));
 });
 
