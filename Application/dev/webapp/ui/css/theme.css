@@ -1,3 +1,7 @@
 .rsFullWidth {
   width: 100% ;
 }
+nav.rsNavW {
+  height: 48px;
+  background: #02598e;
+}
